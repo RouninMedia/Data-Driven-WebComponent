@@ -9,7 +9,7 @@ beneath this post by **Lea Verou**: _https://lea.verou.me/2020/09/the-failed-pro
 
 ## HTML
 ```
-<colour-list scheme="rainbow" />
+<colour-list scheme="rainbow"></colour-list>
 <colour-list scheme="zebra" />
 ```
 
