@@ -15,8 +15,10 @@ beneath this post by **Lea Verou**: _https://lea.verou.me/2020/09/the-failed-pro
 
 ## Javascript
 ```
-const rainbowJSON = '["red", "orange", "yellow", "green", "blue", "indigo", "violet"]';
-const zebraJSON = '["black", "white", "black", "white", "black"]';
+const schemes = {
+  rainbowJSON : '["red", "orange", "yellow", "green", "blue", "indigo", "violet"]',
+  zebraJSON : '["black", "white", "black", "white", "black"]'
+}
 
 class colourList_CustomElement extends HTMLElement {
   
@@ -31,12 +33,12 @@ class colourList_CustomElement extends HTMLElement {
     
       <style>
         :host {
-          display: block;          // <= Because Custom elements are display:inline by default
+          display: inline-block;          // <= Because Custom elements are display:inline by default
           contain: content;        // <= Because this delivers an immediate performance win
         }
         
         ul {
-          margin: 0;
+          margin: 0 24px 0 0;
           padding: 0;
           width: 200px;
           list-style-type: none;
@@ -53,7 +55,8 @@ class colourList_CustomElement extends HTMLElement {
       
     `;
     
-    let colours = JSON.parse(coloursJSON);
+    let schemeJSON = schemes[this.getAttribute('scheme') + 'JSON'];
+    let colours = JSON.parse(schemeJSON);
     let colourList = document.createElement('ul');
     let listItem;
     
