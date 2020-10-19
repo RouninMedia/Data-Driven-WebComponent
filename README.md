@@ -33,8 +33,8 @@ class colourList_CustomElement extends HTMLElement {
     
       <style>
         :host {
-          display: inline-block;          // <= Because Custom elements are display:inline by default
-          contain: content;        // <= Because this delivers an immediate performance win
+          display: inline-block;   /* <= Because Custom elements are display:inline by default */
+          contain: content;        /* <= Because this delivers an immediate performance win */
         }
         
         ul {
