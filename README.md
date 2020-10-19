@@ -63,7 +63,8 @@ class colourList_CustomElement extends HTMLElement {
     for (let colour of colours) {
     
       listItem = document.createElement('li');
-      listItem.setAttribute('style', 'color: '+ colour + '; background-color: ' + colour + ';');
+      let textShadow = (colour === 'black') ? 'text-shadow: 1px 1px rgba(255, 255, 255, 0.7);' : '';
+      listItem.setAttribute('style', 'color: '+ colour + '; background-color: ' + colour + ';' + textShadow);
       listItem.textContent = colour;
       colourList.appendChild(listItem);
 
