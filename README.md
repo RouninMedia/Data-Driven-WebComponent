@@ -32,11 +32,39 @@ class colourList_CustomElement extends HTMLElement {
           display: block;          // <= Because Custom elements are display:inline by default
           contain: content;        // <= Because this delivers an immediate performance win
         }
+        
+        ul {
+          margin: 0;
+          padding: 0;
+          width: 200px;
+          list-style-type: none;
+        }
+        
+        li {
+          height: 24px;
+          text-align: center;
+          font-weight: bold;
+          text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+        }
+        
       </style>
-    
+      
     `;
     
-    window.alert(coloursJSON);
+    let colours = JSON.parse(coloursJSON);
+    let colourList = document.createElement('ul');
+    let listItem;
+    
+    for (let colour of colours) {
+    
+      listItem = document.createElement('li');
+      listItem.setAttribute('style', 'color: '+ colour + '; background-color: ' + colour + ';');
+      listItem.textContent = colour;
+      colourList.appendChild(listItem);
+
+    }
+    
+    this.root.appendChild(colourList);
   }
 }
 
